@@ -14,7 +14,19 @@ export const colors = {
 
 const globalStyles = StyleSheet.create({
   font: {
-    fontFamily: "NIKOLETA"
+    fontFamily: "NIKOLETA",
+    fontSize: 20
+  },
+  defaultFont: {
+    fontFamily: "Crafter-Regular",
+    fontSize: 12
+  },
+  errorWrapper: {
+    textAlign: "right",
+    marginTop: 10,
+    marginBottom: 10,
+    color: "#f52740",
+    fontSize: 11
   }
 });
 

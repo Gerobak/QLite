@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   },
   formInput: {
     borderWidth: 1,
-    paddingLeft: 15,
     borderColor: "#2980b9",
     borderRadius: 12,
     marginVertical: height * 0.02
@@ -47,6 +46,14 @@ const styles = StyleSheet.create({
     width: "35%",
     height: 1,
     marginTop: height * 0.01
+  },
+  forgotPasswordWrapper: {
+    textAlign: "right",
+    fontSize: 12,
+    color: colors.BLUE_V1,
+    marginTop: 25,
+    marginBottom: 10,
+    marginRight: 10
   }
 });
 
