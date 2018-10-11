@@ -27,6 +27,17 @@ const globalStyles = StyleSheet.create({
     marginBottom: 10,
     color: "#f52740",
     fontSize: 11
+  },
+  centerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white"
+  },
+  alignCenterContainer: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: colors.white
   }
 });
 

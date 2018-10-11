@@ -15,11 +15,17 @@
     "android:reset-cache": "react-native start --reset-cache"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "native-base": "^2.8.1",
     "react": "16.5.0",
     "react-native": "0.57.2",
+    "react-native-elements": "^1.0.0-beta6",
     "react-native-vector-icons": "^6.0.2",
-    "react-navigation": "^2.17.0"
+    "react-navigation": "^2.17.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-persist": "^5.10.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
