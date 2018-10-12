@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import globalStyles, { colors, height } from "../../assets/styles/global";
 import { Footer } from "native-base";
+import styles from "../Welcome/WelcomeStyle";
 
 export class Welcome extends PureComponent {
   static navigationOptions = {
@@ -40,30 +41,17 @@ export class Welcome extends PureComponent {
         >
           <Image
             source={require("../../assets/img/bg.jpg")}
-            style={{
-              width: "100%",
-              height: height * 0.375,
-              marginBottom: "5%"
-            }}
+            style={styles.headerImg}
             resizeMethod="resize"
             resizeMode="cover"
           />
-          <Text
-            style={[
-              globalStyles.font,
-              { color: colors.DARK_BLUE, fontSize: 25 }
-            ]}
-          >
+          <Text style={[globalStyles.font, styles.heading]}>
             WELCOME TO QUARTZ LITE!
           </Text>
 
           <Image
             source={require("../../assets/img/metal2.jpg")}
-            style={{
-              width: "80%",
-              height: height * 0.2,
-              marginBottom: "5%"
-            }}
+            style={styles.logo}
             resizeMethod="resize"
             resizeMode="contain"
           />
@@ -78,26 +66,13 @@ export class Welcome extends PureComponent {
           >
             <TouchableOpacity
               onPress={() => this.navigate("Login")}
-              style={{
-                padding: 12,
-                borderRadius: 20,
-                backgroundColor: colors.BLUE_V1,
-                width: "47.5%",
-                alignItems: "center"
-              }}
+              style={styles.btnLogin}
             >
               <Text style={{ color: colors.WHITE }}>LOGIN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.navigate("Signup")}
-              style={{
-                padding: 10,
-                borderRadius: 20,
-                borderColor: colors.BLUE_V1,
-                width: "47.5%",
-                alignItems: "center",
-                borderWidth: 1
-              }}
+              style={styles.btnSignup}
             >
               <Text style={{ color: colors.DARK_BLUE }}>SIGNUP</Text>
             </TouchableOpacity>

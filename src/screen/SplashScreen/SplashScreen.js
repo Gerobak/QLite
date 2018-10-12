@@ -40,12 +40,12 @@ class SplashScreen extends PureComponent {
     return (
       <View style={globalStyles.centerContainer}>
         <StatusBar backgroundColor={colors.BLUE_V1} />
-        {/* <Image
-          source={require("../../assets/images/logo.png")}
+        <Image
+          source={require("../../assets/img/metal2.jpg")}
           style={globalStyles.splashScreenLogo}
           resizeMethod="resize"
           resizeMode="contain"
-        /> */}
+        />
         <Icon
           name="minecraft"
           type="MaterialCommunityIcons"
