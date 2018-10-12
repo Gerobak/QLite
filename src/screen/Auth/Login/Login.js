@@ -7,12 +7,15 @@ import {
   Icon,
   Item,
   Input,
-  Content
+  Content,
+  Spinner
 } from "native-base";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { StatusBar, TouchableOpacity, InteractionManager } from "react-native";
-import globalStyles, { colors } from "../../../assets/styles/global";
+import globalStyles, { colors, fonts } from "../../../assets/styles/global";
 import styles from "./LoginStyle";
+import { loginAuth } from "../../../actions/auth";
 
 class Login extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -34,7 +37,8 @@ class Login extends Component {
       password: "",
       invalidEmail: false,
       invalidPassword: false,
-      unVisible: true
+      unVisible: true,
+      errors: []
     };
   }
 
@@ -53,6 +57,10 @@ class Login extends Component {
     });
   };
 
+  handleError = error => {
+    this.setState({ errors: error });
+  };
+
   onPressLogin = () => {
     const { email, password } = this.state;
     if (email && password) {
@@ -60,14 +68,14 @@ class Login extends Component {
         invalidEmail: false,
         invalidPassword: false
       });
-      // this.props
-      //   .loginAuth({ email, password })
-      //   .then(() => {
-      //     this.props.navigation.navigate("Home");
-      //   })
-      //   .catch(error => {
-      //     this.handleError(error);
-      //   });
+      this.props
+        .loginAuth({ email, password })
+        .then(() => {
+          this.props.navigation.navigate("Home");
+        })
+        .catch(error => {
+          this.handleError(error);
+        });
     } else {
       if (!email) {
         this.setState({
@@ -102,7 +110,12 @@ class Login extends Component {
               name="minecraft"
               type="MaterialCommunityIcons"
             />
-            <Text style={{ color: colors.BLUE_V1, fontSize: 45 }}>
+            <Text
+              style={{
+                color: colors.BLUE_V1,
+                fontSize: 45,
+                fontFamily: fonts.nikoleta
+              }}>
               Quartz Lite
             </Text>
             <View style={styles.form}>
@@ -127,8 +140,7 @@ class Login extends Component {
                     style={[
                       globalStyles.errorWrapper,
                       globalStyles.defaultFont
-                    ]}
-                  >
+                    ]}>
                     Email should not be empty!
                   </Text>
                 ) : null}
@@ -163,19 +175,18 @@ class Login extends Component {
                     style={[
                       globalStyles.errorWrapper,
                       globalStyles.defaultFont
-                    ]}
-                  >
+                    ]}>
                     Password should not be empty!
                   </Text>
                 ) : null}
                 <TouchableOpacity
+                  disabled={this.props.isLoading}
                   onPress={() =>
                     // this.props.screenProps.rootNavigation.navigate(
                     //   "ForgotPasswordScreen"
                     // )
                     console.log("Forgoten pass")
-                  }
-                >
+                  }>
                   <Text style={styles.forgotPasswordWrapper}>
                     Forgot Password?
                   </Text>
@@ -183,9 +194,12 @@ class Login extends Component {
                 <Button
                   onPress={() => this.onPressLogin()}
                   disabled={this.props.isLoading}
-                  style={[styles.formInput, styles.btnLogin]}
-                >
-                  <Text style={globalStyles.font}>LOGIN</Text>
+                  style={[styles.formInput, styles.btnLogin]}>
+                  {this.props.isLoading ? (
+                    <Spinner color="white" />
+                  ) : (
+                    <Text style={globalStyles.font}>LOGIN</Text>
+                  )}
                 </Button>
               </Form>
               <View style={styles.row}>
@@ -197,7 +211,10 @@ class Login extends Component {
                 </View>
                 <View style={styles.row2} />
               </View>
-              <Button style={[styles.formInput, styles.btnSignup]}>
+              <Button
+                onPress={() => this.props.navigation.navigate("Signup")}
+                disabled={this.props.isLoading}
+                style={[styles.formInput, styles.btnSignup]}>
                 <Text style={[globalStyles.font, { color: colors.BLUE_V1 }]}>
                   SIGNUP
                 </Text>
@@ -210,4 +227,16 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = ({ auth }) => ({
+  isLoading: auth.isLoading,
+  errorMessage: auth.errorMessage
+});
+
+const mapDispatchToProps = dispatch => ({
+  loginAuth: user => dispatch(loginAuth(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

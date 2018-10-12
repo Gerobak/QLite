@@ -1,6 +1,7 @@
 import { createStackNavigator } from "react-navigation";
-import SplashScreen from "../screen/SplashScreen/index";
+import SplashScreen from "../screen/SplashScreen/";
 import Login from "../screen/Auth/Login";
+import Signup from "../screen/Auth/Signup";
 
 const Root = createStackNavigator(
   {
@@ -9,9 +10,12 @@ const Root = createStackNavigator(
     },
     Login: {
       screen: Login
+    },
+    Signup: {
+      screen: Signup
     }
   },
-  { initialRouteName: "Login" }
+  { initialRouteName: "Signup" }
 );
 
 export default Root;

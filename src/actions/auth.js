@@ -1,12 +1,6 @@
-import {
-  LOGIN_START,
-  LOGIN_FAILED,
-  LOGIN_SUCCESS,
-  LOGOUT_START,
-  LOGOUT_FAILED,
-  LOGOUT_SUCCESS
-} from "./constant/auth";
+import { LOGIN_START, LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT } from "./const/auth";
 import axios from "axios";
+import { ToastAndroid } from "react-native";
 
 const loginStart = () => ({
   type: LOGIN_START
@@ -17,18 +11,6 @@ const loginFailed = error => ({
 });
 const loginSuccess = data => ({
   type: LOGIN_SUCCESS,
-  payload: data
-});
-
-const logoutStart = () => ({
-  type: LOGOUT_START
-});
-const logoutFailed = error => ({
-  type: LOGOUT_FAILED,
-  payload: error
-});
-const logoutSuccess = data => ({
-  type: LOGOUT_SUCCESS,
   payload: data
 });
 
@@ -47,25 +29,17 @@ export const loginAuth = ({ email, password }) => dispatch => {
       .catch(error => {
         dispatch(loginFailed(error));
         reject(error.response.data.errors);
+        return ToastAndroid.showWithGravityAndOffset(
+          error.response.data.errors[0],
+          ToastAndroid.LONG,
+          ToastAndroid.BOTTOM,
+          25,
+          50
+        );
       });
   });
 };
 
-export const signOut = ({ client, token, uid }) => dispatch => {
-  dispatch(logoutStart());
-  return axios
-    .delete("https://xynergy-trav.herokuapp.com/api/v1/users/sign_out", {
-      headers: {
-        "Access-Token": token,
-        Client: client,
-        Uid: uid
-      }
-    })
-    .then(res => {
-      dispatch(logoutSuccess(res.data));
-      return res.data;
-    })
-    .catch(error => {
-      dispatch(logoutFailed(error.response));
-    });
-};
+export const logout = () => ({
+  type: LOGOUT
+});

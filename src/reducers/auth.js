@@ -1,11 +1,8 @@
 import {
   LOGIN_START,
   LOGIN_FAILED,
-  LOGIN_SUCCESS,
-  LOGOUT_START,
-  LOGOUT_FAILED,
-  LOGOUT_SUCCESS
-} from "../actions/constant/auth";
+  LOGIN_SUCCESS
+} from "../actions/const/auth";
 
 const initialState = {
   isLogin: false,
@@ -35,25 +32,6 @@ export default (state = initialState, action) => {
         isLoading: false,
         isLogin: true,
         userData: action.payload
-      };
-    case LOGOUT_START:
-      return {
-        ...state,
-        isLogin: true,
-        isLoading: true
-      };
-    case LOGOUT_FAILED:
-      return {
-        isLoading: false,
-        isLogin: true,
-        error: action.payload
-      };
-    case LOGOUT_SUCCESS:
-      return {
-        ...state,
-        isLogin: false,
-        isLoading: false,
-        userData: {}
       };
     default:
       return state;
