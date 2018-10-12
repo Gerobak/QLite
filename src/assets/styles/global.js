@@ -44,6 +44,11 @@ const globalStyles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: colors.white
+  },
+  spaceBetweenContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%"
   }
 });
 
