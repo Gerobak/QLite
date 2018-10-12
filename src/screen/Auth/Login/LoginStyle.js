@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#2980b9",
     borderRadius: 12,
-    marginVertical: height * 0.02
+    marginVertical: height * 0.01
   },
   btnLogin: {
     width: "100%",

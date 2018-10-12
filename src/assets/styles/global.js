@@ -12,13 +12,19 @@ export const colors = {
   WHITE: "#fff"
 };
 
+export const fonts = {
+  nikoleta: "NIKOLETA",
+  craftReg: "Crafter-Regular",
+  craftRough: "Crafter-Rough"
+};
+
 const globalStyles = StyleSheet.create({
   font: {
-    fontFamily: "NIKOLETA",
+    fontFamily: fonts.nikoleta,
     fontSize: 20
   },
   defaultFont: {
-    fontFamily: "Crafter-Regular",
+    fontFamily: fonts.craftReg,
     fontSize: 12
   },
   errorWrapper: {
