@@ -10,7 +10,6 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "push-dual": "git push origin dev-heru && git push gerobak dev-heru",
     "android:gradlew-clean": "cd android && ./gradlew clean",
     "android:run": "react-native run-android",
     "android:reset-cache": "react-native start --reset-cache"
