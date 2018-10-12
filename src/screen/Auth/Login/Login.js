@@ -180,6 +180,7 @@ class Login extends Component {
                   </Text>
                 ) : null}
                 <TouchableOpacity
+                  disabled={this.props.isLoading}
                   onPress={() =>
                     // this.props.screenProps.rootNavigation.navigate(
                     //   "ForgotPasswordScreen"
@@ -210,7 +211,10 @@ class Login extends Component {
                 </View>
                 <View style={styles.row2} />
               </View>
-              <Button style={[styles.formInput, styles.btnSignup]}>
+              <Button
+                onPress={() => this.props.navigation.navigate("Signup")}
+                disabled={this.props.isLoading}
+                style={[styles.formInput, styles.btnSignup]}>
                 <Text style={[globalStyles.font, { color: colors.BLUE_V1 }]}>
                   SIGNUP
                 </Text>
