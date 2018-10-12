@@ -35,5 +35,5 @@ and run following code:
 
 ## Contributors
 
-| <img src="https://avatars0.githubusercontent.com/u/39685450?s=460&v=4" width="100px;"/><br /><sub>[<b>Heru Julyanto</b>](https://github.com/Heru6664)</sub>| <img src="https://avatars3.githubusercontent.com/u/43843938?s=460&v=4" width="100px;"/><br /><sub>[<b>Friedaz</b>](https://github.com/Friedaz) </sub>| <img src="https://avatars1.githubusercontent.com/u/42527139?s=460&v=4" width="100px;"/><br /><sub>[<b>Frankenstein</b>](https://github.com/ImanIsmayana)</sub>|<img src="https://avatars0.githubusercontent.com/u/43027887?s=460&v=4" width="100px;"/><br /><sub>[<b>Lisna Panca Wiguna</b>](https://github.com/Lisnapanca)</sub>|
+| <img src="https://avatars0.githubusercontent.com/u/39685450?s=460&v=4" width="100px;"/><br /><sub>[<b>Raizel</b>](https://github.com/Heru6664)</sub>| <img src="https://avatars3.githubusercontent.com/u/43843938?s=460&v=4" width="100px;"/><br /><sub>[<b>Friedaz</b>](https://github.com/Friedaz) </sub>| <img src="https://avatars1.githubusercontent.com/u/42527139?s=460&v=4" width="100px;"/><br /><sub>[<b>Frankenstein</b>](https://github.com/ImanIsmayana)</sub>|<img src="https://avatars0.githubusercontent.com/u/43027887?s=460&v=4" width="100px;"/><br /><sub>[<b>Lisna Panca Wiguna</b>](https://github.com/Lisnapanca)</sub>|
 | :---: | :---: | :---: | :---: | 
