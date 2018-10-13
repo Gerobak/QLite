@@ -23,7 +23,9 @@ const Root = createStackNavigator(
       screen: Welcome
     }
   },
-  { initialRouteName: "SplashScreen" }
+  {
+    initialRouteName: "SplashScreen"
+  }
 );
 
 export default Root;

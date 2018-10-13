@@ -115,7 +115,8 @@ class Login extends Component {
                 color: colors.BLUE_V1,
                 fontSize: 45,
                 fontFamily: fonts.nikoleta
-              }}>
+              }}
+            >
               Quartz Lite
             </Text>
             <View style={styles.form}>
@@ -128,6 +129,7 @@ class Login extends Component {
                   />
                   <Input
                     placeholder="Email"
+                    autoCapitalize="none"
                     placeholderTextColor={colors.DARK_BLUE}
                     style={[
                       { color: invalidEmail ? "#f52740" : colors.DARK_BLUE }
@@ -140,7 +142,8 @@ class Login extends Component {
                     style={[
                       globalStyles.errorWrapper,
                       globalStyles.defaultFont
-                    ]}>
+                    ]}
+                  >
                     Email should not be empty!
                   </Text>
                 ) : null}
@@ -152,7 +155,7 @@ class Login extends Component {
                   />
                   <Input
                     placeholderTextColor={colors.DARK_BLUE}
-                    placeholder="Kata Sandi"
+                    placeholder="Password"
                     returnKeyType="done"
                     autoCapitalize="none"
                     secureTextEntry={unVisible}
@@ -175,7 +178,8 @@ class Login extends Component {
                     style={[
                       globalStyles.errorWrapper,
                       globalStyles.defaultFont
-                    ]}>
+                    ]}
+                  >
                     Password should not be empty!
                   </Text>
                 ) : null}
@@ -186,7 +190,8 @@ class Login extends Component {
                     //   "ForgotPasswordScreen"
                     // )
                     console.log("Forgoten pass")
-                  }>
+                  }
+                >
                   <Text style={styles.forgotPasswordWrapper}>
                     Forgot Password?
                   </Text>
@@ -194,7 +199,8 @@ class Login extends Component {
                 <Button
                   onPress={() => this.onPressLogin()}
                   disabled={this.props.isLoading}
-                  style={[styles.formInput, styles.btnLogin]}>
+                  style={[styles.formInput, styles.btnLogin]}
+                >
                   {this.props.isLoading ? (
                     <Spinner color="white" />
                   ) : (
@@ -214,7 +220,8 @@ class Login extends Component {
               <Button
                 onPress={() => this.props.navigation.navigate("Signup")}
                 disabled={this.props.isLoading}
-                style={[styles.formInput, styles.btnSignup]}>
+                style={[styles.formInput, styles.btnSignup]}
+              >
                 <Text style={[globalStyles.font, { color: colors.BLUE_V1 }]}>
                   SIGNUP
                 </Text>
