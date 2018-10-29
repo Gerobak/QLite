@@ -15,7 +15,7 @@ const Root = createStackNavigator(
       screen: Signup
     }
   },
-  { initialRouteName: "Signup" }
+  { initialRouteName: "Login" }
 );
 
 export default Root;
