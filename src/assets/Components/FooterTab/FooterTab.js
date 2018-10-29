@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { TabNavigator } from "react-navigation";
+import { Platform } from "react-native";
 import { Button, Text, Icon, Footer, FooterTab } from "native-base";
 import HomeContainer from "../../../screen/Home/Container/Home";
 import Feed from "../../../screen/Home/Container/Feed";
 import Thread from "../../../screen/Home/Container/Thread";
 import Event from "../../../screen/Home/Container/Event";
 import Profile from "../../../screen/Home/Container/Profile";
+import { colors } from "../../styles/global";
+
 export default (MainScreenNavigator = TabNavigator(
   {
     Home: {
@@ -28,8 +31,8 @@ export default (MainScreenNavigator = TabNavigator(
     tabBarPosition: "bottom",
     tabBarComponent: props => {
       return (
-        <Footer>
-          <FooterTab>
+        <Footer style={{ backgroundColor: "white", marginBottom: -2 }}>
+          <FooterTab style={{ backgroundColor: "white" }}>
             <Button
               vertical
               active={props.navigationState.index === 0}
@@ -60,7 +63,7 @@ export default (MainScreenNavigator = TabNavigator(
             </Button>
             <Button
               vertical
-              active={props.navigationState.index === 3}
+              active={props.navigationState.index === 4}
               onPress={() => props.navigation.navigate("Profile")}>
               <Icon name="face-profile" type="MaterialCommunityIcons" />
               <Text>Profile</Text>
@@ -68,6 +71,31 @@ export default (MainScreenNavigator = TabNavigator(
           </FooterTab>
         </Footer>
       );
+    },
+    tabBarOptions: {
+      activeTintColor: colors.WHITE,
+      activeBackgroundColor: colors.BLUE_V1,
+      iconStyle: { flex: 1, width: 15, height: 15, padding: 0 },
+      // labelStyle: { fontSize: 10, paddingHorizontal: 0 },
+      style: {
+        backgroundColor:
+          Platform.OS === "ios" ? colors.BLUE_V1 : colors.BLUE_V1,
+        marginBottom: Platform.OS == "android" ? -10 : 0,
+        // height: Metrics.screenHeight * 0.1,
+        borderTopColor: "#fafafa"
+        // flex: 1,
+      },
+      indicatorStyle: {
+        flex: 1,
+        backgroundColor: colors.BLUE_V1
+      },
+      tabStyle: {
+        flex: 1,
+        backgroundColor: Platform.OS == "android" ? colors.BLUE_V1 : null
+      },
+      labelStyle: {
+        fontSize: 10
+      }
     }
   }
 ));
