@@ -10,11 +10,12 @@ import {
   Button,
   Spinner
 } from "native-base";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, Alert } from "react-native";
 import { CheckBox } from "react-native-elements";
-import globalStyles, { height, colors } from "../../../assets/styles/global";
+import globalStyles, { height, colors } from ":../../../assets/styles/global";
 import styles from "./SignupStyle";
 import { connect } from "react-redux";
+import { signUpUser } from "../../../actions/signup";
 
 export class Signup extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -48,6 +49,38 @@ export class Signup extends Component {
       [key]: val
     });
   };
+
+  handleError = error => {
+    this.setState({ errors: error });
+  };
+
+  handleSignUp = () => {
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      passwordConfirmation,
+      phone
+    } = this.state;
+    this.props
+      .signUpUser({
+        firstName,
+        lastName,
+        email,
+        password,
+        passwordConfirmation,
+        phone
+      })
+      .then(() => {
+        Alert.alert("Signup Successfully");
+        this.props.navigation.navigate("Login");
+      })
+      .catch(error => {
+        return this.handleError(error);
+      });
+  };
+
   render() {
     return (
       <Container>
@@ -62,7 +95,8 @@ export class Signup extends Component {
               style={{
                 width: "85%",
                 paddingVertical: 5
-              }}>
+              }}
+            >
               <Form>
                 <Item rounded style={styles.formInput}>
                   <Input
@@ -89,6 +123,7 @@ export class Signup extends Component {
                   <Input
                     placeholder="Password"
                     placeholderTextColor={colors.DARK_BLUE}
+                    secureTextEntry={true}
                     onChangeText={val => this.onChangeValue("password", val)}
                   />
                 </Item>
@@ -96,15 +131,20 @@ export class Signup extends Component {
                   <Input
                     placeholder="Re-Type Password"
                     placeholderTextColor={colors.DARK_BLUE}
+                    secureTextEntry={true}
                     onChangeText={val =>
                       this.onChangeValue("passwordConfirmation", val)
                     }
                   />
                 </Item>
                 <Item rounded style={styles.formInput}>
+                  <Text style={{ color: colors.DARK_BLUE, marginLeft: 10 }}>
+                    +62
+                  </Text>
                   <Input
-                    placeholder="+62"
                     placeholderTextColor={colors.DARK_BLUE}
+                    keyboardType="numeric"
+                    maxLength={13}
                     onChangeText={val => this.onChangeValue("phone", val)}
                   />
                 </Item>
@@ -119,9 +159,10 @@ export class Signup extends Component {
                   style={[
                     styles.formInput,
                     !this.state.terms ? styles.btnDisable : styles.btnLogin
-                  ]}>
+                  ]}
+                >
                   {this.props.isLoading ? (
-                    <Spinner color="white" />
+                    <Spinner color="whi, /* : */te" />
                   ) : (
                     <Text style={globalStyles.font}>SIGNUP</Text>
                   )}
@@ -135,13 +176,13 @@ export class Signup extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({
-  isLoading: auth.isLoading,
+const mapStateToProps = ({ auth, signup }) => ({
+  isLoading: signup.loading,
   errorMessage: auth.errorMessage
 });
 
 const mapDispatchToProps = dispatch => ({
-  loginAuth: user => dispatch(loginAuth(user))
+  signUpUser: user => dispatch(signUpUser(user))
 });
 
 export default connect(

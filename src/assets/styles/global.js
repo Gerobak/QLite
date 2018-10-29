@@ -44,6 +44,15 @@ const globalStyles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: colors.white
+  },
+  spaceBetweenContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%"
+  },
+  splashScreenLogo: {
+    height: "47.5%",
+    width: "75%"
   }
 });
 
