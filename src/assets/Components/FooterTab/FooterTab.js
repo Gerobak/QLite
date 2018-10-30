@@ -35,6 +35,10 @@ export default (MainScreenNavigator = TabNavigator(
           <FooterTab style={{ backgroundColor: "white" }}>
             <Button
               vertical
+              style={{
+                backgroundColor:
+                  props.navigationState.index === 0 ? colors.BLUE_V1 : "white"
+              }}
               active={props.navigationState.index === 0}
               onPress={() => props.navigation.navigate("Home")}>
               <Icon name="home" />
@@ -42,6 +46,10 @@ export default (MainScreenNavigator = TabNavigator(
             </Button>
             <Button
               vertical
+              style={{
+                backgroundColor:
+                  props.navigationState.index === 1 ? colors.BLUE_V1 : "white"
+              }}
               active={props.navigationState.index === 1}
               onPress={() => props.navigation.navigate("Feed")}>
               <Icon name="feed" type="SimpleLineIcons" />
@@ -49,6 +57,10 @@ export default (MainScreenNavigator = TabNavigator(
             </Button>
             <Button
               vertical
+              style={{
+                backgroundColor:
+                  props.navigationState.index === 2 ? colors.BLUE_V1 : "white"
+              }}
               active={props.navigationState.index === 2}
               onPress={() => props.navigation.navigate("Thread")}>
               <Icon name="newspaper-o" type="FontAwesome" />
@@ -56,6 +68,10 @@ export default (MainScreenNavigator = TabNavigator(
             </Button>
             <Button
               vertical
+              style={{
+                backgroundColor:
+                  props.navigationState.index === 3 ? colors.BLUE_V1 : "white"
+              }}
               active={props.navigationState.index === 3}
               onPress={() => props.navigation.navigate("Event")}>
               <Icon name="event-available" type="MaterialIcons" />
@@ -63,6 +79,10 @@ export default (MainScreenNavigator = TabNavigator(
             </Button>
             <Button
               vertical
+              style={{
+                backgroundColor:
+                  props.navigationState.index === 4 ? colors.BLUE_V1 : "white"
+              }}
               active={props.navigationState.index === 4}
               onPress={() => props.navigation.navigate("Profile")}>
               <Icon name="face-profile" type="MaterialCommunityIcons" />
@@ -74,12 +94,12 @@ export default (MainScreenNavigator = TabNavigator(
     },
     tabBarOptions: {
       activeTintColor: colors.WHITE,
-      activeBackgroundColor: colors.BLUE_V1,
+      activeBackgroundColor: colors.DARK_BLUE,
       iconStyle: { flex: 1, width: 15, height: 15, padding: 0 },
       // labelStyle: { fontSize: 10, paddingHorizontal: 0 },
       style: {
         backgroundColor:
-          Platform.OS === "ios" ? colors.BLUE_V1 : colors.BLUE_V1,
+          Platform.OS === "ios" ? colors.DARK_BLUE : colors.DARK_BLUE,
         marginBottom: Platform.OS == "android" ? -10 : 0,
         // height: Metrics.screenHeight * 0.1,
         borderTopColor: "#fafafa"
@@ -87,11 +107,11 @@ export default (MainScreenNavigator = TabNavigator(
       },
       indicatorStyle: {
         flex: 1,
-        backgroundColor: colors.BLUE_V1
+        backgroundColor: colors.DARK_BLUE
       },
       tabStyle: {
         flex: 1,
-        backgroundColor: Platform.OS == "android" ? colors.BLUE_V1 : null
+        backgroundColor: Platform.OS == "android" ? colors.DARK_BLUE : null
       },
       labelStyle: {
         fontSize: 10
