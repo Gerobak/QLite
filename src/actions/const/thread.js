@@ -1,0 +1,3 @@
+export const GET_NEWS_START = "GET_NEWS_START";
+export const GET_NEWS_FAILED = "GET_NEWS_FAILED";
+export const GET_NEWS_SUCCESS = "GET_NEWS_SUCCESS";
